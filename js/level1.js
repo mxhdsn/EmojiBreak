@@ -39,7 +39,7 @@ class level1 extends Phaser.Scene {
         this.score = this.add.text(50, 40, 'Score = ' + this.scoreCount)
 
         //-- Create the Paddle --//
-        this.paddle = new paddle
+        this.paddle = new paddle(this)
 
         //-- Detect Collsion between bottom world border and ball ---//
 

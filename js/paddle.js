@@ -24,7 +24,7 @@ class paddle {
     }
 
     handlePointerUp(pointer) {
-        this.scene.scale.startFullScreen()
+        this.scene.scale.startFullscreen()
         this.touchData.endX = pointer.x
         this.touchData.endY = pointer.y
         this.handleTouch()
@@ -46,7 +46,7 @@ class paddle {
         if (this.isFrozen) {
             return
         }
-        const xForce = 0.1
+        const xForce = 0.01
         if (this.moveRight) {
             this.sprite.applyForce({
                 x: xForce,
