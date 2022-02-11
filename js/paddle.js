@@ -5,8 +5,8 @@ class paddle {
     constructor(scene) {
         this.scene = scene
         this.touchData = {}
-        this.sprite = scene.matter.add
-            .sprite(400, 550, 'paddle', 0)
+        this.paddle = scene.matter.add
+            .image(400, 550, 'paddle')
             .setBody({
                 type: 'rectangle',
             })
@@ -48,15 +48,16 @@ class paddle {
         }
         const xForce = 0.01
         if (this.moveRight) {
-            this.sprite.applyForce({
+            this.paddle.applyForce({
                 x: xForce,
                 y: 0,
             })
         } else if (this.moveLeft){
-            this.sprite.applyForce({
+            this.paddle.applyForce({
                 x: -xForce,
                 y: 0
             })
         }
+        this.moveLeft = this.moveRight = false
     }
 }

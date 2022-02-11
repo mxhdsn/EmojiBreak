@@ -1,8 +1,12 @@
 class level1 extends Phaser.Scene {
-    /**@type {number}*/
+    /** @type {number} */
     livesLeft = 3
     /** @type {number} */
     scoreCount = 0
+    /** @type {number} */
+    t
+    /** @type {number} */
+    dt
 
     constructor() {
         super('level1')
@@ -17,6 +21,7 @@ class level1 extends Phaser.Scene {
 
     create() {
         const { width, height } = this.scale
+        this.cursors = this.input.keyboard.createCursorKeys()
 
         //-- Create the Ball --//
         const ball = this.matter.add.image(400, 300, 'ball', undefined, {
@@ -48,7 +53,7 @@ class level1 extends Phaser.Scene {
         //-- Add Score for every block broken --//
     }
 
-    update() {
+    update(t, dt) {
         this.paddle.update()
     }
 
