@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <title>Emoji Break</title>
+    <script src="js/phaser.min.js"></script>
+    <script src="js/phaser-matter-collision.js"></script>
+    <script src="js/level1.js"></script>
+    <script src="js/paddle.js"></script>
+    <script src="js/Utils.js"></script>
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body {
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        let config = {
+            type: Phaser.AUTO,
+            width: 800,
+            height: 600,
+            scale: {
+                mode: Phaser.Scale.FIT,
+                autoCenter: Phaser.Scale.CENTER_BOTH
+            },
+            pixelArt: false,
+            physics: {
+                default: 'matter',
+                matter: {
+                    debug: true,
+                    gravity: { y: 0 },
+                    setBounds: {
+                        left: true,
+                        right: true,
+                        top: true,
+                        bottom: true
+                    }
+                }
+            },
+            plugins: {
+                scene: [
+                    {
+                        plugin: PhaserMatterCollisionPlugin.default,
+                        key: "matterCollision",
+                        mapping: "matterCollision"
+
+                    }
+                ]
+            },
+            scene: level1
+        }
+        let game = new Phaser.Game(config);
+    </script>
+</body>
+
+</html>
